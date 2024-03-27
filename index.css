@@ -1,0 +1,45 @@
+<ad>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA de Matemática</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<heh1>IA de Matemática</h1>
+    <p>Insira uma pergunta de matemática:</p>
+    <input type="text" id="pergunta">
+    <button onclick="responder()">Perguntar</button>
+    <p id="resposta"></p>
+
+    <script>
+        function responder() {
+            var pergunta = document.getElementById("pergunta").value;
+            var resposta = calcularResposta(pergunta);
+            document.getElementById("resposta").innerText = resposta;
+        }
+
+        function calcularResposta(pergunta) {
+            if (pergunta.includes("+")) {
+                var numeros = pergunta.split("+");
+                var resultado = parseFloat(numeros[0]) + parseFloat(numeros[1]);
+                return "A resposta é: " + resultado;
+            } else if (pergunta.includes("-")) {
+                var numeros = pergunta.split("-");
+                var resultado = parseFloat(numeros[0]) - parseFloat(numeros[1]);
+                return "A resposta é: " + resultado;
+            } else if (pergunta.includes("*")) {
+                var numeros = pergunta.split("*");
+                var resultado = parseFloat(numeros[0]) * parseFloat(numeros[1]);
+                return "A resposta é: " + resultado;
+            } else if (pergunta.includes("/")) {
+                var numeros = pergunta.split("/");
+                var resultado = parseFloat(numeros[0]) / parseFloat(numeros[1]);
+                return "A resposta é: " + resultado;
+            } else {
+                return "Desculpe, não consigo responder a essa pergunta.";
+            }
+        }
+    </script>
+</body>
+</html>
